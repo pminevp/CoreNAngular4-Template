@@ -17,10 +17,48 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ApplicationDbContext.cs" />
+    <Compile Remove="Core\AccountManager.cs" />
+    <Compile Remove="Core\ApplicationPermissions.cs" />
+    <Compile Remove="Core\CustomClaimTypes.cs" />
+    <Compile Remove="Core\Enums.cs" />
+    <Compile Remove="Core\Interfaces\IAccountManager.cs" />
+    <Compile Remove="Core\Interfaces\IRepository.cs" />
+    <Compile Remove="DatabaseInitializer.cs" />
+    <Compile Remove="IUnitOfWork.cs" />
+    <Compile Remove="Models\ApplicationRole.cs" />
+    <Compile Remove="Models\ApplicationUser.cs" />
+    <Compile Remove="Models\Customer.cs" />
+    <Compile Remove="Models\Order.cs" />
+    <Compile Remove="Models\OrderDetail.cs" />
+    <Compile Remove="Models\Product.cs" />
+    <Compile Remove="Models\ProductCategory.cs" />
+    <Compile Remove="Repositories\CustomerRepository.cs" />
+    <Compile Remove="Repositories\Interfaces\ICustomerRepository.cs" />
+    <Compile Remove="Repositories\Interfaces\IOrdersRepository.cs" />
+    <Compile Remove="Repositories\Interfaces\IProductRepository.cs" />
+    <Compile Remove="Repositories\Interfaces\IRepository.cs" />
+    <Compile Remove="Repositories\OrdersRepository.cs" />
+    <Compile Remove="Repositories\ProductRepository.cs" />
+    <Compile Remove="Repositories\Repository.cs" />
+    <Compile Remove="UnitOfWork.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="NuGet.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="1.1.2" />
     <PackageReference Include="OpenIddict" Version="1.0.0-beta2-0614" />
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="1.0.0-beta2-0614" />
     <PackageReference Include="System.ValueTuple" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Core\Interfaces\" />
+    <Folder Include="Models\" />
+    <Folder Include="Repositories\Interfaces\" />
   </ItemGroup>
 
 </Project>

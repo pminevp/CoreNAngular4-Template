@@ -40,9 +40,6 @@
     <PackageReference Include="System.ValueTuple" Version="4.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DAL\DAL.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <!-- Files not to show in IDE -->
     <None Remove="yarn.lock" />
     <Compile Remove="wwwroot\dist\**" />
@@ -82,5 +79,10 @@
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="1.0.0" />
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\ES.Core.Commons\ES.Core.Commons.csproj" />
+    <ProjectReference Include="..\..\ES.Core.Managers\ES.Core.Handlers.csproj" />
   </ItemGroup>
 </Project>

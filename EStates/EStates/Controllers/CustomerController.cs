@@ -11,12 +11,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using DAL;
 using EStates.ViewModels;
 using AutoMapper;
-using DAL.Models;
 using Microsoft.Extensions.Logging;
 using EStates.Helpers;
+using ES.Core.Handlers;
 
 namespace EStates.Controllers
 {

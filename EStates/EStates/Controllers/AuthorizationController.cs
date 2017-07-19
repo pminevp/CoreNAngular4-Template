@@ -21,10 +21,10 @@ using AspNet.Security.OpenIdConnect.Server;
 using OpenIddict.Models;
 using OpenIddict.Core;
 using AspNet.Security.OpenIdConnect.Primitives;
-using DAL.Models;
-using DAL.Core;
 using Microsoft.Extensions.Options;
 using Microsoft.AspNetCore.Builder;
+using ES.Data.Models;
+using ES.Data.Identity;
 
 // For more information on enabling Web API for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 

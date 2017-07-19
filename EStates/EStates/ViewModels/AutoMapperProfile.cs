@@ -7,8 +7,8 @@
 // ======================================
 
 using AutoMapper;
-using DAL.Core;
-using DAL.Models;
+using ES.Data.Identity;
+using ES.Data.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

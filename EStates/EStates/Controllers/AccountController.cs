@@ -15,12 +15,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using EStates.ViewModels;
 using AutoMapper;
-using DAL.Models;
-using DAL.Core.Interfaces;
 using EStates.Policies;
 using EStates.Helpers;
 using Microsoft.AspNetCore.JsonPatch;
-using DAL.Core;
+using ES.Data.Managers.Interfaces;
+using ES.Data.Models;
+using ES.Data.Identity;
 
 namespace EStates.Controllers
 {

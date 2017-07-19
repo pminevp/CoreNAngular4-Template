@@ -1,11 +1,3 @@
-// ======================================
-// Author: Ebenezer Monney
-// Email:  info@ebenmonney.com
-// Copyright (c) 2017 www.ebenmonney.com
-// 
-// ==> Gun4Hire: contact@ebenmonney.com
-// ======================================
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,24 +10,24 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using Newtonsoft.Json.Serialization;
-using DAL;
-using DAL.Models;
 using System.Net;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
-using FluentValidation.AspNetCore;
 using AutoMapper;
 using Newtonsoft.Json;
-using DAL.Core;
-using DAL.Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using EStates.ViewModels;
 using EStates.Helpers;
 using EStates.Policies;
-using AppPermissions = DAL.Core.ApplicationPermissions;
 using AspNet.Security.OpenIdConnect.Primitives;
 using OpenIddict.Core;
+using ES.Data;
+using ES.Data.Models;
+using ES.Data.Managers.Interfaces;
+using ES.Core.Handlers;
+using ES.Data.Managers;
+using ES.Data.Interfaces;
+using ES.Data.Identity;
 
 namespace EStates
 {
@@ -153,19 +145,19 @@ namespace EStates
             {
                 options.AddPolicy(AuthPolicies.ViewUserByUserIdPolicy, policy => policy.Requirements.Add(new ViewUserByIdRequirement()));
 
-                options.AddPolicy(AuthPolicies.ViewUsersPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, AppPermissions.ViewUsers));
+                options.AddPolicy(AuthPolicies.ViewUsersPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission,ApplicationPermissions.ViewUsers));
 
                 options.AddPolicy(AuthPolicies.ManageUserByUserIdPolicy, policy => policy.Requirements.Add(new ManageUserByIdRequirement()));
 
-                options.AddPolicy(AuthPolicies.ManageUsersPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, AppPermissions.ManageUsers));
+                options.AddPolicy(AuthPolicies.ManageUsersPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, ApplicationPermissions.ManageUsers));
 
                 options.AddPolicy(AuthPolicies.ViewRoleByRoleNamePolicy, policy => policy.Requirements.Add(new ViewRoleByNameRequirement()));
 
-                options.AddPolicy(AuthPolicies.ViewRolesPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, AppPermissions.ViewRoles));
+                options.AddPolicy(AuthPolicies.ViewRolesPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, ApplicationPermissions.ViewRoles));
 
                 options.AddPolicy(AuthPolicies.AssignRolesPolicy, policy => policy.Requirements.Add(new AssignRolesRequirement()));
 
-                options.AddPolicy(AuthPolicies.ManageRolesPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, AppPermissions.ManageRoles));
+                options.AddPolicy(AuthPolicies.ManageRolesPolicy, policy => policy.RequireClaim(CustomClaimTypes.Permission, ApplicationPermissions.ManageRoles));
             });
 
             Mapper.Initialize(cfg =>
